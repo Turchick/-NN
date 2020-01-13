@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 batch_size = 128
 num_classes = 10
-epochs = 3
+epochs = 10
 
 # Размер изображения
 img_rows, img_cols = 28, 28
@@ -63,7 +63,7 @@ history = model.fit(x_train, y_train,
 
 # 1 граф
 pylab.figure (1)
-x = range(3)
+x = range(10)
 
 plt.grid(True)
 
@@ -87,7 +87,7 @@ plt.legend(loc='lower right')
 score = model.evaluate(x_test, y_test, verbose=0)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
-# save learned weights
+# сохранение весов
 model.save_weights('mnist_weights_epoch10.h5')
 
 # 2 граф
