@@ -10,12 +10,12 @@ import matplotlib.pyplot as plt
 
 batch_size = 128
 num_classes = 10
-epochs = 100
+epochs = 3
 
-# input image dimensions
+# Размер изображения
 img_rows, img_cols = 28, 28
 
-# the data, split between train and test sets
+#Данные, разделенные между train и test 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 if K.image_data_format() == 'channels_first':
@@ -35,7 +35,7 @@ print('x_train shape:', x_train.shape)
 print(x_train.shape[0], 'train samples')
 print(x_test.shape[0], 'test samples')
 
-# convert class vectors to binary class matrices
+# Преобразовать векторы классов в матрицы бинарных классов
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
@@ -50,11 +50,11 @@ model.add(Flatten())
 model.add(Dense(128, activation='relu'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
-
+#Компиляция модели
 model.compile(loss=keras.losses.categorical_crossentropy,
               optimizer=keras.optimizers.Nadam(),
               metrics=['accuracy'])
-# сохраняем историю оюучения
+# сохраняем историю обучения
 history = model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
@@ -63,7 +63,7 @@ history = model.fit(x_train, y_train,
 
 # 1 граф
 pylab.figure (1)
-x = range(100)
+x = range(3)
 
 plt.grid(True)
 
