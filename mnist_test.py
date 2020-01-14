@@ -1,4 +1,3 @@
-# import required modules
 import keras
 import sys
 import cv2
@@ -8,9 +7,10 @@ from keras.layers import Dense
 
 # импорт MNIST dataset
 from keras.datasets import mnist
-
-
-
+from PIL import ImageTk, Image
+from tkinter import *
+from tkinter.filedialog import *
+from tkinter import scrolledtext
 
 
 
