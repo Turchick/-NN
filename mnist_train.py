@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 
 batch_size = 128
 num_classes = 10
-epochs = 10
+epochs = 12
 
 # Размер изображения
 img_rows, img_cols = 28, 28
@@ -52,7 +52,7 @@ model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 #Компиляция модели
 model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Nadam(),
+              optimizer=keras.optimizers.Adadelta(),
               metrics=['accuracy'])
 # сохраняем историю обучения
 history = model.fit(x_train, y_train,
@@ -63,7 +63,7 @@ history = model.fit(x_train, y_train,
 
 # 1 граф
 pylab.figure (1)
-x = range(10)
+x = range(12)
 
 plt.grid(True)
 
